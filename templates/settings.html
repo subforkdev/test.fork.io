@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+  <script type="text/javascript" src="/static/js/profile.js"></script>
+    <div class="bg-body-tertiary p-5 rounded">
+      <h1>Settings</h1>
+      <p class="lead">Example of a user settings page.</p>
+      <div id="settingsform"></div>
+    </div>
+  <script type="text/javascript" charset="utf-8">
+    $(document).ready(function(){
+      create_form();
+      $$("myForm").setValues({
+        email:"{{user.email|safe}}",
+        name:"{{user.name}}",
+        username:"{{user.username}}",
+      })
+    });
+</script>
+{% endblock %}

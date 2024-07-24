@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+  <script type="text/javascript" src="/static/js/main.js"></script>
+  <script type="text/javascript" src="/static/js/bookings.js"></script>
+  <div class="bg-body-tertiary p-5 rounded">
+    <h1>Create some data</h1>
+    <p class="lead">This example illustrates the simplicity of creating data and displaying the results.
+      Read more information <a href='https://docs.subfork.com/'>here</a>.
+    </p>
+    <a id="taskbutton" class="btn btn-lg btn-primary" role="button" onclick="create_form();">Create Data &raquo;</a>
+    <div id="bookingstable"></div>
+  </div>
+  <script>
+    create_table();
+  </script>
+{% endblock %}

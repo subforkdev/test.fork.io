@@ -1,0 +1,46 @@
+# enter verified site domain name here
+domain: test.fork.io
+
+# enter site credentials here
+access_key: ${SUBFORK_ACCESS_KEY}
+secret_key: ${SUBFORK_SECRET_KEY}
+
+# template and static file folder paths
+template_folder: templates
+static_folder: static
+
+# deployment settings
+auto_minimize: true
+
+# page template definitions
+templates:
+  base:
+    file: base.html
+  index:
+    route: /
+    file: index.html
+  data:
+    route: /data
+    file: bookings.html
+    loginrequired: true
+  task:
+    route: /task
+    file: task.html
+    loginrequired: true
+  download:
+    route: /download
+    file: download.html
+  settings:
+    route: /settings
+    file: settings.html
+    loginrequired: true
+  user:
+    route: /user/<username>
+    file: user.html
+    loginrequired: true
+
+# task worker definitions
+workers:
+  test:
+    queue: test
+    function: subfork.worker.test

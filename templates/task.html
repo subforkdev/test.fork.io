@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+  <script type="text/javascript" src="/static/js/task.js"></script>
+  <div class="bg-body-tertiary p-5 rounded">
+    <h1>Click the button to create a task</h1>
+    <p class="lead">This example is a quick exercise to illustrate creating a task and displaying the results.
+        Read more information <a href='https://docs.subfork.com/'>here</a>.
+    </p>
+    <a id="taskbutton" class="btn btn-lg btn-primary" role="button" onclick="create_form();">Create Task &raquo;</a>
+    <div id="table"></div>
+  </div>
+{% endblock %}

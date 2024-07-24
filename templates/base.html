@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+  <head>
+    <title>Test Site - Subfork</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Subfork is the easiest way to prototype, build, and share micro web applications">
+    <link rel="icon" type="image/x-icon" href="/static/img/favicon.ico">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+    <link rel="stylesheet" href="https://cdn.webix.com/edge/skins/willow.css" type="text/css">
+    <script src="https://cdn.webix.com/edge/webix.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+    <script src="/static/js/color-modes.js"></script>
+    <script type="text/javascript" src="/static/js/main.js"></script>
+    <script type="text/javascript" src="https://code.subfork.com/subfork.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdn.webix.com/materialdesignicons/5.8.95/css/materialdesignicons.min.css" type="text/css" charset="utf-8">
+    <link rel="stylesheet" href="/static/css/style.css">
+  </head>
+<body>
+<script type="text/javascript" charset="utf-8">
+  function go() {
+    window.open("https://subfork.com/");
+  };
+</script>
+<header class="p-3 mb-3 border-bottom text-bg-dark">
+    <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a href="/"><img src="/static/img/logo.png" style="width:24px;margin:6px"></a>
+        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none">
+            <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
+        </a>
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+            <li><a href="/" class="nav-link px-2 {%if request.path=='/'%}text-secondary{%else%}text-white{% endif %}">Overview</a></li>
+            <li><a href="/data" class="nav-link px-2 {%if request.path=='/data'%}text-secondary{%else%}text-white{% endif %}">Data</a></li>
+            <li><a href="/task" class="nav-link px-2 {%if request.path=='/task'%}text-secondary{%else%}text-white{% endif %}">Tasks</a></li>
+            <li><a href="https://docs.subfork.com/" class="nav-link px-2 text-white" target="_blank">Docs</a></li>
+            <li><a href="/download" class="nav-link px-2 {%if request.path=='/download'%}text-secondary{%else%}text-white{% endif %}">Download</a></li>
+        </ul>
+        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+            <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+        </form>
+        {% if user and user.is_authenticated %}
+        <div class="dropdown text-end">
+            <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="{{user.profile_image}}" width="32" height="32" class="rounded-circle">
+            </a>
+            <ul class="dropdown-menu text-small">
+            <li><a class="dropdown-item" href="/settings">Settings</a></li>
+            <li><a class="dropdown-item" href="/user/{{user.username}}">Profile</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="/logout">Sign out</a></li>
+            </ul>
+        </div>
+        {% else %}
+        <div class="text-end">
+            <a href="/login" class="btn btn-outline-light me-2" role="button">Login</a>
+            <a href="/signup" class="btn btn-warning" role="button">Sign-up</a>
+        </div>
+        {% endif %}
+        </div>
+    </div>
+</header>
+<main class="container">
+  {% block content %}{% endblock %}
+  <footer class="pt-3 mt-4 text-body-secondary">
+    &copy; 2024 Subfork
+  </footer>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
