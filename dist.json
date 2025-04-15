@@ -1,0 +1,25 @@
+{
+    "author": "ryan@rsg.io",
+    "targets": {
+        "app": {
+            "source": "app",
+            "destination": "{DEPLOY_ROOT}/app"
+        },
+        "env": {
+            "source": "default.env",
+            "destination": "{DEPLOY_ROOT}/env/default.env"
+        },
+        "build": {
+            "source": "build",
+            "destination": "{DEPLOY_ROOT}/build"
+        },
+        "service": {
+            "source": "services/worker.service",
+            "destination": "{DEPLOY_ROOT}/conf/worker.service"
+        },
+        "subfork.yml": {
+            "source": "subfork.yml",
+            "destination": "{DEPLOY_ROOT}/conf/subfork.yml"
+        }
+    }
+}

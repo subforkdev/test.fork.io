@@ -6,8 +6,8 @@ access_key: ${SUBFORK_ACCESS_KEY}
 secret_key: ${SUBFORK_SECRET_KEY}
 
 # template and static file folder paths
-template_folder: templates
-static_folder: static
+template_folder: app/templates
+static_folder: app/static
 
 # deployment settings
 auto_minimize: true

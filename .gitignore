@@ -12,3 +12,5 @@ venv*
 tmp/
 bup/
 *.zip
+secrets.env
+keys.env

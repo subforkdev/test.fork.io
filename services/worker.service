@@ -1,0 +1,15 @@
+[Unit]
+Description=Subfork Workers
+After=network.target
+
+[Service]
+User=root
+WorkingDirectory=/etc/test.fork.io/prod
+ExecStart=/etc/test.fork.io/prod/build/bin/envstack -- subfork worker
+Restart=always
+RestartSec=5
+Environment=ENVPATH=/etc/test.fork.io/prod/env
+Environment=PYTHONPATH=/etc/test.fork.io/prod/build
+
+[Install]
+WantedBy=multi-user.target
