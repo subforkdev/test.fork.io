@@ -68,7 +68,7 @@ To test running the service using the `test.env` environment:
 $ ./test.env -- subfork worker
 ```
 
-## Quickstart
+### Quickstart
 
 To install and start the systemd service:
 
@@ -89,13 +89,10 @@ To deploy the app to subfork:
 $ make deploy
 ```
 
-## Workers
+### Workers
 
-**Note:** Workers must be run with an admin account that has full data access
-and permissions.
-
-Checking worker logs:
+Checking systemd worker logs:
 
 ```shell
-$ sudo journalctl -u bnbnotify -f
+$ sudo journalctl -u test.fork.io -f
 ```
